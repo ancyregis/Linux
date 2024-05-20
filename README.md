@@ -136,5 +136,41 @@ SDCARD BOOT
            /*critical section*/
            pthread_mutex_unlock[&mutex] //key unlock
 
-18/5/2024
+18/4/2024
+
+consumer -> read
+producer -> write/add
+
+t1 cannot annalyze whether the queue is empty it has to wait untill queue is filled with some elment in it.
+
+
+MUTEX                                                CONDITION VARIABLES
+only mutual exclusion                                mutual exclusion + custom condition
+can access the laptop                                can access the laptop only if it have internet
+
+
+conditional variables are not used for mutual exclusion, using cnditional variables  a thread can blolck itself(pthread_con_wait), a thread can signal already blocked thread by resume by (pthread_cond_signal). ccondition variables implemnet cheyan mutex veenam.
+
+SEMAPHORES
+mutex is nothing but binary semaphores
+
+UART
+board connect(wire connect)-loop back
+rugged board terminal- sudo minicom-type it will print single letter -> next ctrl+a ,z -> e -it will print it in double letters.
+
+CROSS COMPILE
+open terminal where the required file is present 
+ls
+${CC} filename -o new filename
+cp filename /var/lib/tftpboot/
+
+BOARD TERMINAL
+sudo minicom
+wired connection
+root
+ifconfig eth0 192.168.1.30
+tftp -r filename -g 192.168.1.33
+ls
+chmod 777 filename
+./filename
   
